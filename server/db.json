@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "arif emir",
+      "surname": "arslanturk",
+      "email": "arifarslanturk@gmail.com",
+      "password": "123",
+      "contacts": [
+        {
+          "name": "suleyman",
+          "surname": "bindi",
+          "phone": "5405445599",
+          "email": "suleyman@gmail.com",
+          "photo": "images/suleyman.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "mahmut",
+      "surname": "surname",
+      "email": "email@gmail.com",
+      "password": "123",
+      "contacts": []
+    },
+    {
+      "id": 3,
+      "name": "selam",
+      "surname": "hey",
+      "email": "email2@gmail.com",
+      "password": "123",
+      "contacts": []
+    }
+  ]
+}
