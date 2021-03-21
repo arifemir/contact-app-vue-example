@@ -31,6 +31,14 @@
       </router-link>
     </slot>
     <slot v-else>
+      <router-link to="/addcontact">
+        <v-btn
+          text
+        >
+          <span class="mr-2">{{ $t('addContact') }}</span>
+          <v-icon>mdi-contacts</v-icon>
+        </v-btn>
+      </router-link>
       <v-btn
         text
         @click="logout"

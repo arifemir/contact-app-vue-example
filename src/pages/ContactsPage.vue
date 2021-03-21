@@ -1,10 +1,5 @@
 <template>
   <div class="ma-4">
-    <v-row>
-      <v-btn>
-        {{ $t('addContact') }}
-      </v-btn>
-    </v-row>
     <v-row >
       <v-col>
         <Contact :key="i" v-for="(contact, i) in getUser().contacts" :contact="contact" />

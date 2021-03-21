@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import ContactsPage from '@/pages/ContactsPage.vue';
 import LoginPage from '../pages/LoginPage.vue';
 import RegisterPage from '../pages/RegisterPage.vue';
+// eslint-disable-next-line import/no-cycle
 import store from '../store';
 
 Vue.use(VueRouter);
@@ -38,6 +39,14 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: ContactsPage,
+    beforeEnter(to, from, next) {
+      ifNotHaveUserGoLogin(next);
+    },
+  },
+  {
+    path: '/addcontact',
+    name: 'AddContact',
+    component: () => import(/* webpackChunkName: "AddContactPage" */ '../pages/AddContactPage.vue'),
     beforeEnter(to, from, next) {
       ifNotHaveUserGoLogin(next);
     },

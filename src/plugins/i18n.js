@@ -27,8 +27,8 @@ const messages = {
     password: 'Parola',
     repassword: 'Yeniden parola',
     phoneNumber: 'Telefon numarası',
-    phoneBook: 'Telefon rehberi',
-    addContact: 'Add contact',
+    phoneBook: 'Rehber',
+    addContact: 'Kişi ekle',
   },
 };
 
