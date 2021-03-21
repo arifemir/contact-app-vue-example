@@ -31,6 +31,38 @@
       "email": "email2@gmail.com",
       "password": "123",
       "contacts": []
+    },
+    {
+      "id": "dd4d2e9b-a2d2-46d0-a2ea-3c2ff2820cf3",
+      "name": "arife2",
+      "surname": "asdasdasd",
+      "email": "email23@gmail.com",
+      "password": "123",
+      "contacts": []
+    },
+    {
+      "id": "bfa2ba43-5d0d-403f-9392-9e28deee1116",
+      "name": "arife222",
+      "surname": "asdasdasd",
+      "email": "email21@gmail.com",
+      "password": "123",
+      "contacts": []
+    },
+    {
+      "id": "10b9409a-85bd-4b91-a151-b07f9aa8d8ce",
+      "name": "name1",
+      "surname": "asdasdasd",
+      "email": "email234@gmail.com",
+      "password": "123",
+      "contacts": []
+    },
+    {
+      "id": "8016a3fc-3b23-4256-a960-5b21c7c2ea88",
+      "name": "yeni kullanici",
+      "surname": "kullanici",
+      "email": "kullaniciyeni@gmacil.com",
+      "password": "1233",
+      "contacts": []
     }
   ]
 }
