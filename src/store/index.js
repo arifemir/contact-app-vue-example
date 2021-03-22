@@ -3,7 +3,8 @@ import Vuex from 'vuex';
 import { loginService, registerService } from '@/services/userAuthService';
 // eslint-disable-next-line import/no-cycle
 import router from '@/router';
-import { addContactService } from '@/services/contactService';
+import { addContactService, deleteContactService } from '@/services/contactService';
+import { v4 as uuidv4 } from 'uuid';
 
 Vue.use(Vuex);
 
@@ -39,8 +40,16 @@ export default new Vuex.Store({
     },
     async addContact({ commit, state }, userData) {
       const { user } = state;
-      user.contacts.push(userData);
+      const newUserData = { id: uuidv4(), ...userData };
+      user.contacts.push(newUserData);
       await addContactService(user);
+      localStorage.setItem('user', JSON.stringify(user));
+      commit('setUser', user);
+    },
+    async deleteContact({ commit, state }, id) {
+      const { user } = state;
+      user.contacts = user.contacts.filter((contact) => contact.id !== id);
+      await deleteContactService(user);
       localStorage.setItem('user', JSON.stringify(user));
       commit('setUser', user);
     },

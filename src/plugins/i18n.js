@@ -22,6 +22,7 @@ const messages = {
     registrationSuccess: 'Registration success',
     emailOrPasswordWrong: 'Email or password wrong',
     contactInsertionSuccessful: 'Contact insertion successful',
+    contactDeleteSuccessful: 'Contact deleting successful',
     contactSharingRequestSendSuccessful: 'Contact sharing request send successful',
   },
   tr: {
@@ -42,6 +43,7 @@ const messages = {
     registrationSuccess: 'Kayıt olma başarılı',
     emailOrPasswordWrong: 'E-posta yada parola yanlış',
     contactInsertionSuccessful: 'Kişi ekleme başarılı',
+    contactDeleteSuccessful: 'Kişi silme başarılı',
     contactSharingRequestSendSuccessful: 'Kişi paylaşma sorgusu yollanıldı',
   },
 };
