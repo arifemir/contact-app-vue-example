@@ -18,10 +18,12 @@ const deleteContactService = (userData) => {
   useSwalToast('success', i18n.t('contactDeleteSuccessful'));
 };
 
-const shareContactService = (userData) => {
-  axios.put(`/users/${userData.id}`, userData);
-  useSwalToast('success', i18n.t('contactSharingRequestSendSuccessful'));
-};
+const shareContactService = (sent, sentTo) => (async () => {
+  const user = await axios.get(`/users/${sentTo.id}`).then((res) => res.data);
+  user.contactRequests.push(sent);
+  await axios.put(`/users/${sentTo.id}`, user);
+  useSwalToast('success', i18n.t('contactSharingRequestSendSuccessful', { sent: sent.name, sentTo: sentTo.name }));
+})();
 
 export {
   addContactService,

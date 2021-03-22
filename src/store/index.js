@@ -3,8 +3,15 @@ import Vuex from 'vuex';
 import { loginService, registerService } from '@/services/userAuthService';
 // eslint-disable-next-line import/no-cycle
 import router from '@/router';
-import { addContactService, deleteContactService } from '@/services/contactService';
+import {
+  addContactService,
+  deleteContactService,
+  shareContactService,
+} from '@/services/contactService';
 import { v4 as uuidv4 } from 'uuid';
+import useSwalToast from '@/helpers/swalHelper';
+import i18n from '@/plugins/i18n';
+import getAllUserService from '@/services/usersService';
 
 Vue.use(Vuex);
 
@@ -14,10 +21,14 @@ const initialUser = (localUser !== 'undefined' && localUser) && JSON.parse(local
 export default new Vuex.Store({
   state: {
     user: initialUser,
+    users: null,
   },
   mutations: {
     setUser(state, user) {
       state.user = user;
+    },
+    setUsers(state, users) {
+      state.users = users;
     },
   },
   actions: {
@@ -40,6 +51,11 @@ export default new Vuex.Store({
     },
     async addContact({ commit, state }, userData) {
       const { user } = state;
+      const emailIsTaken = user.contacts.find((contact) => contact.email === userData.email);
+      if (emailIsTaken) {
+        useSwalToast('warning', i18n.t('emailIsTaken'));
+        return;
+      }
       const newUserData = { id: uuidv4(), ...userData };
       user.contacts.push(newUserData);
       await addContactService(user);
@@ -53,15 +69,22 @@ export default new Vuex.Store({
       localStorage.setItem('user', JSON.stringify(user));
       commit('setUser', user);
     },
-    // async shareContact({ commit, state }, ) {
-    //
-    // },
+    async shareContact(context, shareData) {
+      await shareContactService(shareData.sent, shareData.sentTo[0]);
+    },
+    async getAllUsers({ commit }) {
+      const users = await getAllUserService();
+      commit('setUsers', users);
+    },
   },
   modules: {
   },
   getters: {
     getUser(state) {
       return state.user;
+    },
+    getUsers(state) {
+      return state.users;
     },
   },
 

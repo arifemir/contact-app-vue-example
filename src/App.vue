@@ -9,6 +9,7 @@
 
 <script>
 import Header from '@/components/Header.vue';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'App',
@@ -16,9 +17,14 @@ export default {
   components: {
     Header,
   },
-
+  created() {
+    this.getAllUsers();
+  },
   data: () => ({
     //
   }),
+  methods: {
+    ...mapActions(['getAllUsers']),
+  },
 };
 </script>
