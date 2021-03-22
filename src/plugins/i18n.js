@@ -31,6 +31,13 @@ const messages = {
     contactRequestAccept: 'Contact request accepted',
     contactRequestReject: 'Contact request reject',
     contactRequests: 'Contact requests',
+    searching: 'Search',
+    guide: 'Guide',
+    loginOrRegister: 'Login or register',
+    ShareContactAnotherUsers: 'Share contact another users',
+    contactRequestsFullOfSharedContacts: 'Contact requests full of shared contacts',
+    acceptOrRejectYourContactRequest: 'Accept or reject your Contact request',
+    acceptedContactRequestIsAddedToContacts: 'Accepted "Contact request" is added to contacts',
   },
   tr: {
     login: 'Giriş yap',
@@ -59,6 +66,13 @@ const messages = {
     contactRequestAccept: 'Kişi paylaşımı kabul edildi',
     contactRequestReject: 'Kişi paylaşımı reddedildi',
     contactRequests: 'Kişi paylaşımları',
+    searching: 'Arama',
+    guide: 'Kılavuz',
+    loginOrRegister: 'Giriş yap yada kayıt ol',
+    ShareContactAnotherUsers: 'Kişilerini diğer kullanıcılar ile paylaş',
+    contactRequestsFullOfSharedContacts: 'Kişi paylaşımları başkalarının sana paylaştıkları kişiler ile dolu',
+    acceptOrRejectYourContactRequest: 'Paylaşılan kişiyi kabul et veya reddet',
+    acceptedContactRequestIsAddedToContacts: 'Kabul edilen paylaşılan kişi kişilerim\'e eklenir',
   },
 };
 

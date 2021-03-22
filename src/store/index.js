@@ -98,6 +98,9 @@ export default new Vuex.Store({
     getUser(state) {
       return state.user;
     },
+    getContacts(state) {
+      return state.user.contacts;
+    },
     getUsers(state) {
       return state.users;
     },
