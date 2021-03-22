@@ -30,7 +30,7 @@
     <v-navigation-drawer
       v-model="drawer"
       absolute
-      :style="{top: '56px'}"
+      :style="{top: '56px', zIndex: '99999'}"
     >
       <v-list>
         <slot v-if="getUser">

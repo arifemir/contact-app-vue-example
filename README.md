@@ -1,3 +1,12 @@
+## App use case
+
+- There are users in our application
+- Users can add contact also delete and share
+- Shared contact bring to contact request page
+- Contact recipient see contact request and can approve or reject
+- If approve contact request goes to contacts else only deleting contact request
+- The app supports 2 language (TR, EN)
+
 ## Quick start
 1)  ### Install dependencies
     ```
@@ -32,4 +41,4 @@
     ```
 -   ### Server uses json-server, more information below for json-server
     See [json-server](https://github.com/typicode/json-server)
-    
+
