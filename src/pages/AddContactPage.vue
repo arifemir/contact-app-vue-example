@@ -7,7 +7,7 @@
             v-model="name"
             :label="$t('name')"
             required
-          ></v-text-field>
+          />
         </v-row>
 
         <v-row>
@@ -15,7 +15,7 @@
             v-model="surname"
             :label="$t('surname')"
             required
-          ></v-text-field>
+          />
         </v-row>
 
         <v-row>
@@ -24,7 +24,7 @@
             :label="$t('email')"
             required
             type="email"
-          ></v-text-field>
+          />
         </v-row>
 
         <v-row>
@@ -32,17 +32,19 @@
             v-model="phone"
             :label="$t('phone')"
             required
-            type="number"
-          ></v-text-field>
+            type="tel"
+          />
         </v-row>
 
-        <v-file-input
-          prepend-icon="mdi-camera"
-          accept="image/png, image/jpeg, image/bmp, image/jpg"
-          :label="$t('photo')"
-          v-model="file"
-          @change="loadPhoto"
-        ></v-file-input>
+        <v-row>
+          <v-file-input
+            prepend-icon="mdi-camera"
+            accept="image/png, image/jpeg, image/bmp, image/jpg"
+            :label="$t('photo')"
+            @change="loadPhoto"
+            @click:clear="photo = ''"
+          />
+        </v-row>
 
         <v-row>
           <v-btn type="submit" :disabled="isButtonDisabled" >
@@ -65,7 +67,6 @@ export default {
     email: '',
     phone: '',
     photo: '',
-    file: '',
   }),
   methods: {
     ...mapActions(['addContact']),
@@ -78,9 +79,10 @@ export default {
         photo: this.photo,
       });
     },
-    loadPhoto() {
+    loadPhoto(file) {
+      if (!file) return;
       const reader = new FileReader();
-      reader.readAsDataURL(this.file);
+      reader.readAsDataURL(file);
       reader.onload = (e) => {
         this.photo = e.target.result;
       };

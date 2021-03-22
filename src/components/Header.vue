@@ -1,71 +1,97 @@
 <template>
-  <v-app-bar
-    app
-    color="primary"
-    dark
-  >
-    <router-link to="/home">
-      <div class="d-flex align-center" >
-        <v-app-bar-title :style="{color: 'white'}">{{ $t('phoneBook') }}</v-app-bar-title>
-      </div>
-    </router-link>
+  <div>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <v-app-bar-nav-icon class="hidden-sm-and-up" @click="drawer = !drawer" />
 
-    <v-spacer></v-spacer>
+      <router-link to="/home">
+        <div class="d-flex align-center" >
+          <v-app-bar-title :style="{color: 'white'}">{{ $t('phoneBook') }}</v-app-bar-title>
+        </div>
+      </router-link>
 
-    <slot v-if="!getUser">
-      <router-link to="/login">
-        <v-btn
-          text
-        >
-          <span class="mr-2">{{ $t('login') }}</span>
-          <v-icon>mdi-login</v-icon>
-        </v-btn>
-      </router-link>
-      <router-link to="/register">
-        <v-btn
-          text
-        >
-          <span class="mr-2">{{ $t('register') }}</span>
-          <v-icon>mdi-account-plus</v-icon>
-        </v-btn>
-      </router-link>
-    </slot>
-    <slot v-else>
-      <router-link to="/addcontact">
-        <v-btn
-          text
-        >
-          <span class="mr-2">{{ $t('addContact') }}</span>
-          <v-icon>mdi-contacts</v-icon>
-        </v-btn>
-      </router-link>
-      <v-btn
-        text
-        @click="logout"
-      >
-        <span class="mr-2">{{ $t('logout') }}</span>
-        <v-icon>mdi-logout</v-icon>
-      </v-btn>
-    </slot>
+      <v-spacer></v-spacer>
 
-    <div class="ml-2">
-      <div class="hovered" :class="($i18n.locale !== 'en') && 'opacity-5'">
-        <v-img @click="$i18n.locale = 'en'" src="https://www.countryflags.io/US/flat/16.png"/>
+      <NavButtons/>
+
+      <div class="ml-2">
+        <div class="hovered" :class="($i18n.locale !== 'en') && 'opacity-5'">
+          <v-img @click="$i18n.locale = 'en'" src="https://www.countryflags.io/US/flat/16.png"/>
+        </div>
+        <div class="hovered" :class="($i18n.locale !== 'tr') && 'opacity-5'">
+          <v-img @click="$i18n.locale = 'tr'" src="https://www.countryflags.io/TR/flat/16.png"/>
+        </div>
       </div>
-      <div class="hovered" :class="($i18n.locale !== 'tr') && 'opacity-5'">
-        <v-img @click="$i18n.locale = 'tr'" src="https://www.countryflags.io/TR/flat/16.png"/>
-      </div>
-    </div>
-  </v-app-bar>
+    </v-app-bar>
+
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      :style="{top: '56px'}"
+    >
+      <v-list>
+        <slot v-if="getUser">
+          <v-list-item link to="addcontact">
+            <v-list-item-icon>
+              <v-icon>mdi-contacts</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ $t('addContact') }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-logout</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content @click="logout">
+              <v-list-item-title>{{ $t('logout') }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </slot>
+        <slot v-else>
+          <v-list-item link to="/login">
+            <v-list-item-icon>
+              <v-icon>mdi-login</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ $t('login') }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item link to="/register">
+            <v-list-item-icon>
+              <v-icon>mdi-account-plus</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{ $t('register') }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </slot>
+
+      </v-list>
+
+    </v-navigation-drawer>
+  </div>
 </template>
 
 <script>
+import NavButtons from '@/components/NavButtons.vue';
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'Header',
+  components: { NavButtons },
   data: () => ({
     langs: ['en', 'tr'],
+    drawer: false,
   }),
   methods: {
     ...mapActions(['logout']),
@@ -84,4 +110,5 @@ export default {
   .opacity-5 {
     opacity: 0.5;
   }
+
 </style>
