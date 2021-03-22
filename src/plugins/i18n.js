@@ -18,6 +18,11 @@ const messages = {
     addContact: 'Add contact',
     phone: 'Phone',
     photo: 'Photo',
+    emailIsTaken: 'E-mail is already using!',
+    registrationSuccess: 'Registration success',
+    emailOrPasswordWrong: 'Email or password wrong',
+    contactInsertionSuccessful: 'Contact insertion successful',
+    contactSharingRequestSendSuccessful: 'Contact sharing request send successful',
   },
   tr: {
     login: 'Giriş yap',
@@ -33,6 +38,11 @@ const messages = {
     addContact: 'Kişi ekle',
     phone: 'Telefon',
     photo: 'Fotoğraf',
+    emailIsTaken: 'E-posta zaten kullanılıyor!',
+    registrationSuccess: 'Kayıt olma başarılı',
+    emailOrPasswordWrong: 'E-posta yada parola yanlış',
+    contactInsertionSuccessful: 'Kişi ekleme başarılı',
+    contactSharingRequestSendSuccessful: 'Kişi paylaşma sorgusu yollanıldı',
   },
 };
 

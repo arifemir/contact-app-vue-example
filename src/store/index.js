@@ -43,8 +43,10 @@ export default new Vuex.Store({
       await addContactService(user);
       localStorage.setItem('user', JSON.stringify(user));
       commit('setUser', user);
-      router.push('/home');
     },
+    // async shareContact({ commit, state }, ) {
+    //
+    // },
   },
   modules: {
   },

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-img :src="contact.photo" />
+    <v-img size="30" :src="contact.photo" />
   </div>
 </template>
 

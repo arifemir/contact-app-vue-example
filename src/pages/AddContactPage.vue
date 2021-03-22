@@ -1,5 +1,5 @@
 <template>
-  <v-form @submit.prevent="addContactSubmit">
+  <v-form @submit="addContactSubmit">
     <v-container>
       <v-col class="ma-auto" cols="12" md="8" lg="6">
         <v-row>

@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import ContactsPage from '@/pages/ContactsPage.vue';
+import UsagePage from '@/pages/UsagePage.vue';
 import LoginPage from '../pages/LoginPage.vue';
 import RegisterPage from '../pages/RegisterPage.vue';
 // eslint-disable-next-line import/no-cycle
@@ -19,6 +20,11 @@ const ifNotHaveUserGoLogin = (next) => {
 };
 
 const routes = [
+  {
+    path: '/',
+    name: 'Usage',
+    component: UsagePage,
+  },
   {
     path: '/login',
     name: 'Login',
@@ -47,6 +53,14 @@ const routes = [
     path: '/addcontact',
     name: 'AddContact',
     component: () => import(/* webpackChunkName: "AddContactPage" */ '../pages/AddContactPage.vue'),
+    beforeEnter(to, from, next) {
+      ifNotHaveUserGoLogin(next);
+    },
+  },
+  {
+    path: '/contactrequests',
+    name: 'ContactRequests',
+    component: () => import(/* webpackChunkName: "ContactRequestPage" */ '../pages/ContactRequestPage.vue'),
     beforeEnter(to, from, next) {
       ifNotHaveUserGoLogin(next);
     },
