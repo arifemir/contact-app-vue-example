@@ -28,6 +28,9 @@ const messages = {
     selectUserForSharing: 'Select user for sharing {name}',
     share: 'Share',
     selectForShare: 'Select contact to share {name}\'s information',
+    contactRequestAccept: 'Contact request accepted',
+    contactRequestReject: 'Contact request reject',
+    contactRequests: 'Contact requests',
   },
   tr: {
     login: 'Giriş yap',
@@ -53,6 +56,9 @@ const messages = {
     selectUserForSharing: '{name} i paylaşmak istediğin kullanıcıyı seç',
     share: 'Paylaş',
     selectForShare: '{name} in bilgilerini paylaşmak için kişi seç',
+    contactRequestAccept: 'Kişi paylaşımı kabul edildi',
+    contactRequestReject: 'Kişi paylaşımı reddedildi',
+    contactRequests: 'Kişi paylaşımları',
   },
 };
 

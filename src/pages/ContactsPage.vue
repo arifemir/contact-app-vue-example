@@ -7,7 +7,6 @@
       </v-expansion-panels>
     </v-container>
   </div>
-
 </template>
 
 <script>

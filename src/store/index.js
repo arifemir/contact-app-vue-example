@@ -4,7 +4,7 @@ import { loginService, registerService } from '@/services/userAuthService';
 // eslint-disable-next-line import/no-cycle
 import router from '@/router';
 import {
-  addContactService,
+  addContactService, contactRequestAcceptService, contactRequestRejectService,
   deleteContactService,
   shareContactService,
 } from '@/services/contactService';
@@ -75,6 +75,21 @@ export default new Vuex.Store({
     async getAllUsers({ commit }) {
       const users = await getAllUserService();
       commit('setUsers', users);
+    },
+    async acceptContactRequest({ commit, state }, id) {
+      const { user } = state;
+      user.contacts.push(user.contactRequests.find((cr) => cr.id === id));
+      user.contactRequests = user.contactRequests.filter((cr) => cr.id !== id);
+      await contactRequestAcceptService(user);
+      localStorage.setItem('user', JSON.stringify(user));
+      commit('setUser', user);
+    },
+    async rejectContactRequest({ commit, state }, id) {
+      const { user } = state;
+      user.contactRequests = user.contactRequests.filter((cr) => cr.id !== id);
+      await contactRequestRejectService(user);
+      localStorage.setItem('user', JSON.stringify(user));
+      commit('setUser', user);
     },
   },
   modules: {

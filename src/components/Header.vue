@@ -5,7 +5,7 @@
       color="primary"
       dark
     >
-      <v-app-bar-nav-icon class="hidden-sm-and-up" @click="drawer = !drawer" />
+      <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
 
       <router-link to="/home">
         <div class="d-flex align-center" >
@@ -34,7 +34,7 @@
     >
       <v-list>
         <slot v-if="getUser">
-          <v-list-item link to="addcontact">
+          <v-list-item link to="/addcontact">
             <v-list-item-icon>
               <v-icon>mdi-contacts</v-icon>
             </v-list-item-icon>
@@ -42,6 +42,15 @@
               <v-list-item-title>
                 {{ $t('addContact') }}
               </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item link to="/contactrequests">
+            <v-list-item-icon>
+              <v-icon>mdi-share-all-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{ $t('contactRequests') }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 

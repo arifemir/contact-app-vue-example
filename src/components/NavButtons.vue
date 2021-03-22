@@ -27,6 +27,16 @@
           <v-icon>mdi-contacts</v-icon>
         </v-btn>
       </router-link>
+
+      <router-link to="/contactrequests">
+        <v-btn
+          text
+        >
+          <span class="mr-2">{{ $t('contactRequests') }}</span>
+          <v-icon>mdi-share-all-outline</v-icon>
+        </v-btn>
+      </router-link>
+
       <v-btn
         text
         @click="logout"
@@ -53,7 +63,7 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 540px) {
+@media (max-width: 750px) {
   .responsive {
     display: none;
   }
