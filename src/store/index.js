@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import { loginService, registerService } from '@/services/userAuthService';
 // eslint-disable-next-line import/no-cycle
 import router from '@/router';
+import { addContactService } from '@/services/contactService';
 
 Vue.use(Vuex);
 
@@ -35,6 +36,14 @@ export default new Vuex.Store({
       localStorage.setItem('user', '');
       commit('setUser', '');
       router.push('/login');
+    },
+    async addContact({ commit, state }, userData) {
+      const { user } = state;
+      user.contacts.push(userData);
+      await addContactService(user);
+      localStorage.setItem('user', JSON.stringify(user));
+      commit('setUser', user);
+      router.push('/home');
     },
   },
   modules: {

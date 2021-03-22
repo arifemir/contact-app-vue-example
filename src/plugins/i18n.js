@@ -16,6 +16,8 @@ const messages = {
     phoneNumber: 'Phone number',
     phoneBook: 'Phone book',
     addContact: 'Add contact',
+    phone: 'Phone',
+    photo: 'Photo',
   },
   tr: {
     login: 'Giriş yap',
@@ -29,6 +31,8 @@ const messages = {
     phoneNumber: 'Telefon numarası',
     phoneBook: 'Rehber',
     addContact: 'Kişi ekle',
+    phone: 'Telefon',
+    photo: 'Fotoğraf',
   },
 };
 

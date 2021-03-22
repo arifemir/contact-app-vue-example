@@ -1,6 +1,6 @@
 <template>
   <div>
-    Concact component
+    <v-img :src="contact.photo" />
   </div>
 </template>
 
